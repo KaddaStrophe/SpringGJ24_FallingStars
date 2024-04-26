@@ -1,35 +1,36 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterInput : MonoBehaviour {
-    //public bool shouldContract { get; set; }
+    public bool shouldCompress { get; set; }
     //public bool shouldInflate { get; set; }
     //public bool shouldNormalize { get; set; }
 
-    //PlayerInputActions inputActions;
-    //protected void OnEnable() {
-    //    inputActions = new PlayerInputActions();
-    //    inputActions.Enable();
+    PlayerInputActions inputActions;
+    protected void OnEnable() {
+        inputActions = new PlayerInputActions();
+        inputActions.Enable();
 
-    //    inputActions.Player.Contract.started += IntentToBoost;
-    //    inputActions.Player.Contract.canceled += StopToBoost;
-    //    inputActions.Player.Inflate.started += IntentToBreak;
-    //    inputActions.Player.Inflate.canceled += StopToBreak;
-    //}
+        inputActions.Player.Compress.started += IntentToCompress;
+        inputActions.Player.Compress.canceled += StopToCompress;
+        //    inputActions.Player.Inflate.started += IntentToBreak;
+        //    inputActions.Player.Inflate.canceled += StopToBreak;
+    }
 
 
-    //protected void OnDisable() {
-    //    inputActions.Disable();
+    protected void OnDisable() {
+        inputActions.Disable();
 
-    //    inputActions.Player.Boost.started -= IntentToBoost;
-    //    inputActions.Player.Boost.canceled -= StopToBoost;
-    //    inputActions.Player.Break.started -= IntentToBreak;
-    //    inputActions.Player.Break.canceled -= StopToBreak;
-    //    inputActions.Player.Turn.started -= IntentToTurn;
-    //    inputActions.Player.Turn.canceled -= StopToTurn;
-    //}
+        inputActions.Player.Compress.started -= IntentToCompress;
+        inputActions.Player.Compress.canceled -= StopToCompress;
+        //    inputActions.Player.Break.started -= IntentToBreak;
+        //    inputActions.Player.Break.canceled -= StopToBreak;
+        //    inputActions.Player.Turn.started -= IntentToTurn;
+        //    inputActions.Player.Turn.canceled -= StopToTurn;
+    }
 
-    //void IntentToBoost(InputAction.CallbackContext context) => shouldContract = true;
-    //void StopToBoost(InputAction.CallbackContext context) => shouldContract = false;
+    void IntentToCompress(InputAction.CallbackContext context) => shouldCompress = true;
+    void StopToCompress(InputAction.CallbackContext context) => shouldCompress = false;
     //void IntentToBreak(InputAction.CallbackContext context) => shouldInflate = true;
     //void StopToBreak(InputAction.CallbackContext context) => shouldInflate = false;
     //void IntentToTurn(InputAction.CallbackContext context) {

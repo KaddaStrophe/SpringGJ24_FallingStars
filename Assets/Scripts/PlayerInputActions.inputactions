@@ -28,7 +28,18 @@
                 {
                     "name": "",
                     "id": "9d94b56d-e60a-468a-b23d-ea28006bd9b5",
-                    "path": "",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Compress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5c65b15-be77-4000-9bf7-d47a3e0bdb41",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
