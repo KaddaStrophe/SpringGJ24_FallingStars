@@ -49,6 +49,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4d6f6d2b-b5e8-4617-9891-94bf15b4cd67",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Compress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f2ea43d5-6da8-49ba-9ffa-bad0dfe173b4",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -62,6 +73,17 @@
                     "name": "",
                     "id": "f8543cba-2628-49ad-ab15-77d5ac176e0b",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inflate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96445f49-13ab-44b9-a3f6-d83f49d0bf2a",
+                    "path": "<Touchscreen>/touch*/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
