@@ -1,0 +1,33 @@
+# == Windows ==
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# == Use opt-in instead of opt-out for root folder ==
+/*
+/*/
+
+# == Git ==
+!.gitattributes
+!.gitignore
+!.gitmodules
+
+# == GitHub ==
+!/.github
+!/*.md
+
+# == Doxygen ==
+!/Doxyfile
+
+# == Jenkins ==
+!/Jenkinsfile
+
+# == Visual Studio ==
+!.editorconfig
+
+# == Unity ==
+!/Assets/
+!/ProjectSettings/
+!/Packages/
+/Assets/InitTestScene*
