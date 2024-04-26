@@ -79,4 +79,8 @@ public class StarPhysics : MonoBehaviour {
         //Debug.Log(rotationalVelocity);
         transform.SetPositionAndRotation(position, Quaternion.Euler(0, 0, rotation));
     }
+
+    public void SetGravity(float newGravity) {
+        gravity = newGravity;
+    }
 }

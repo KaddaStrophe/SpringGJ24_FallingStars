@@ -144,8 +144,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsComponent: {fileID: 3486895541078667317}
   characterInputComponent: {fileID: 2012632533502417461}
-  renderer: {fileID: 6017515053059833544}
-  collider: {fileID: 7303852263688466789}
+  characterRenderer: {fileID: 6017515053059833544}
+  characterCollider: {fileID: 7303852263688466789}
+  visualSizeSmall: 0.3
+  visualSizeDefault: 1
+  visualSizeLarge: 2.3
   movement: {x: 0, y: 0}
 --- !u!114 &3174535911628855483
 MonoBehaviour:
