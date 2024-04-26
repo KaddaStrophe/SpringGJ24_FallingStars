@@ -27,6 +27,6 @@ unityPipeline {
     
     // configuration for deploying to itch
     ITCH_ID = 'stumbleduck/falling-stars'
-	ITCH_CREDENTIALS = 'stumbleduck.itch.io'
+	ITCH_CREDENTIALS = 'Petrichora-itch.io'
 }
 
