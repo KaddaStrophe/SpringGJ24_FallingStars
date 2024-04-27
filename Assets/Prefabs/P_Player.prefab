@@ -463,7 +463,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 5648948795454529655}
   characterCollider: {fileID: 5069288155254542913}
   visualSizeSmall: 0.5
-  gravitySmall: -9.8
+  gravitySmall: -5
   visualSizeDefault: 1.3
   gravityDefault: -9.8
   visualSizeLarge: 2.3

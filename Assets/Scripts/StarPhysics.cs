@@ -50,9 +50,9 @@ public class StarPhysics : MonoBehaviour {
         //
         // __ Calculate Position __
         velocity += new Vector2((acceleration.x * Time.deltaTime) + dragVelocity.x, ((acceleration.y + gravity) * Time.deltaTime) + dragVelocity.y);
-        if (velocity.magnitude <= _minVelocity && acceleration.magnitude == 0f) {
-            velocity = Vector2.zero;
-        }
+        //if (velocity.magnitude <= _minVelocity && acceleration.magnitude == 0f) {
+        //    velocity = Vector2.zero;
+        //}
         position += new Vector2(velocity.x * Time.deltaTime, velocity.y * Time.deltaTime);
 
         // __ Calculate Rotation __
