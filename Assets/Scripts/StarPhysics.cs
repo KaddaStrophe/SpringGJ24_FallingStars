@@ -50,33 +50,7 @@ public class StarPhysics : MonoBehaviour {
         //
         // __ Calculate Position __
         velocity += new Vector2((acceleration.x * Time.deltaTime) + dragVelocity.x, ((acceleration.y + gravity) * Time.deltaTime) + dragVelocity.y);
-        //if (velocity.magnitude <= _minVelocity && acceleration.magnitude == 0f) {
-        //    velocity = Vector2.zero;
-        //}
         position += new Vector2(velocity.x * Time.deltaTime, velocity.y * Time.deltaTime);
-
-        // __ Calculate Rotation __
-        //float poweredRotVel = rotationalVelocity * rotationalVelocity;
-        //float calculatedRotDragAcc = poweredRotVel * _rotationalDrag / _mass;
-        //float rotDragVelocity = calculatedRotDragAcc * Time.deltaTime;
-
-        //bool rotIsNegative = rotationalVelocity < 0 ? true : false;
-        //if (rotationalVelocity < 0) {
-        //    rotationalVelocity += (rotationalAcceleration * Time.deltaTime) + rotDragVelocity;
-        //} else {
-        //    rotationalVelocity += (rotationalAcceleration * Time.deltaTime) - rotDragVelocity;
-        //}
-        //if ((Math.Abs(rotationalVelocity) <= _minRotVelocity || rotIsNegative != (rotationalVelocity < 0))
-        //    && rotationalAcceleration == 0f) {
-        //    rotationalVelocity = 0f;
-        //}
-
-        //rotation += rotationalVelocity * Time.deltaTime;
-        //rotation %= 360;
-        //if (rotation < 0) {
-        //    rotation += 360;
-        //}
-        //Debug.Log(rotationalVelocity);
         transform.SetPositionAndRotation(position, Quaternion.Euler(0, 0, rotation));
     }
 
