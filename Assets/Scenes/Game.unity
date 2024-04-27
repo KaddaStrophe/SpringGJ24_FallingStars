@@ -1031,13 +1031,13 @@ MonoBehaviour:
   - {fileID: 3360619777405921362, guid: 42e95d61265ace34685766b1fd56a1ad, type: 3}
   - {fileID: 3360619777405921362, guid: a6f9d29e4327a0345853845e483712bd, type: 3}
   obstacleRatesLvl1: 030000000200000000000000
-  obstacleRatesLvl2: 010000000300000002000000
-  obstacleRatesLvl3: 000000000200000003000000
+  obstacleRatesLvl2: 020000000300000001000000
+  obstacleRatesLvl3: 010000000200000003000000
   obstacleDistance: 20
   levelDurations:
-  - 50
-  - 50
-  - 50
+  - 200
+  - 200
+  - 200
   lastObstacleVertPos: 0
   currentHeight: 0
   heightDelta: 0
