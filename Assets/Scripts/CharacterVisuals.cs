@@ -9,7 +9,7 @@ public class CharacterVisuals : MonoBehaviour {
     [SerializeField]
     float easeTime = 0.1f;
 
-    Vector2 newScale = Vector2.zero;
+    Vector3 newScale = Vector3.zero;
     LTDescr lastTween = null;
 
     protected void OnEnable() {
@@ -23,9 +23,9 @@ public class CharacterVisuals : MonoBehaviour {
     void VisualizeResizing(CharacterMotor character) {
         LeanTween.cancel(lastTween.id);
         newScale = character.GetCurrentSize() switch {
-            Size.DEFAULT => new Vector2(character.visualSizeDefault, character.visualSizeDefault),
-            Size.SMALL => new Vector2(character.visualSizeSmall, character.visualSizeSmall),
-            Size.LARGE => new Vector2(character.visualSizeLarge, character.visualSizeLarge),
+            Size.DEFAULT => new Vector3(character.visualSizeDefault, character.visualSizeDefault, 1),
+            Size.SMALL => new Vector3(character.visualSizeSmall, character.visualSizeSmall, 1),
+            Size.LARGE => new Vector3(character.visualSizeLarge, character.visualSizeLarge, 1),
             _ => throw new NotImplementedException(),
         };
         lastTween = LeanTween.scale(gameObject, newScale, easeTime).setEase(easeType);

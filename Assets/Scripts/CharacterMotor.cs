@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class CharacterMotor : MonoBehaviour {
     [SerializeField]
@@ -32,6 +33,8 @@ public class CharacterMotor : MonoBehaviour {
     public float visualSizeLarge = 2.3f;
     [SerializeField]
     float gravityLarge = -30f;
+    [SerializeField]
+    VisualEffect meteorVFX = default;
 
     [Header("Debug")]
     [SerializeField]
@@ -56,7 +59,11 @@ public class CharacterMotor : MonoBehaviour {
         if (!characterCollider) {
             TryGetComponent(out characterCollider);
         }
+    }
+
+    protected void Start() {
         NormalizeSize();
+        meteorVFX.Stop();
     }
 
     protected void FixedUpdate() {
@@ -94,34 +101,31 @@ public class CharacterMotor : MonoBehaviour {
     void Inflate() {
         isInflated = true;
         ResizeCharacter(Size.LARGE);
+        meteorVFX.Reinit();
+        meteorVFX.Play();
         characterEventChannel.RaiseCharacterResize(this);
     }
     void NormalizeSize() {
         isInflated = false;
         isCompressed = false;
         ResizeCharacter(Size.DEFAULT);
+        meteorVFX.Stop();
         characterEventChannel.RaiseCharacterResize(this);
     }
 
     void ResizeCharacter(Size size) {
         switch (size) {
             case Size.DEFAULT:
-                //characterRenderer.transform.localScale = new Vector3(visualSizeDefault, visualSizeDefault, 1f);
-                //characterCollider.radius = visualSizeDefault / 2f;
                 trailRenderer.widthMultiplier = 1;
                 physicsComponent.SetGravity(gravityDefault);
                 currentSize = Size.DEFAULT;
                 break;
             case Size.SMALL:
-                //characterRenderer.transform.localScale = new Vector3(visualSizeSmall, visualSizeSmall, 1f);
-                //characterCollider.radius = visualSizeSmall / 2f;
                 trailRenderer.widthMultiplier = 0.5f;
                 physicsComponent.SetGravity(gravitySmall);
                 currentSize = Size.SMALL;
                 break;
             case Size.LARGE:
-                //characterRenderer.transform.localScale = new Vector3(visualSizeLarge, visualSizeLarge, 1f);
-                //characterCollider.radius = visualSizeLarge / 2f;
                 trailRenderer.widthMultiplier = 2f;
                 physicsComponent.SetGravity(gravityLarge);
                 currentSize = Size.LARGE;
