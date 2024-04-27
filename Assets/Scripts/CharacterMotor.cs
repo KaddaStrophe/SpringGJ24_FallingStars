@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Threading;
 using Unity.Collections;
 using UnityEngine;
 public enum Size {
@@ -44,6 +43,8 @@ public class CharacterMotor : MonoBehaviour {
     bool isCompressed = false;
     bool isInflated = false;
     bool alreadyBouncedBack = false;
+    bool usingOnScreenButtons = false;
+    bool usingInputDevices = false;
 
     protected void OnEnable() {
         if (!physicsComponent) {
@@ -60,27 +61,43 @@ public class CharacterMotor : MonoBehaviour {
 
     protected void FixedUpdate() {
         physicsComponent.acceleration = currentAcceleration;
+        if (!usingOnScreenButtons) {
+            if (!isInflated) {
+                if (characterInputComponent.shouldCompress && !isCompressed) {
+                    usingInputDevices = true;
+                    Compress();
+                }
+                if (!characterInputComponent.shouldCompress && isCompressed) {
+                    usingInputDevices = false;
+                    NormalizeSize();
+                }
+            }
+            if (!isCompressed) {
+                if (characterInputComponent.shouldInflate && !isInflated) {
+                    usingInputDevices = true;
+                    Inflate();
+                }
+                if (!characterInputComponent.shouldInflate && isInflated) {
+                    usingInputDevices = false;
+                    NormalizeSize();
+                }
+            }
+        }
+    }
 
-        if (!isInflated) {
-            if (characterInputComponent.shouldCompress && !isCompressed) {
-                isCompressed = true;
-                ResizeCharacter(Size.SMALL);
-            }
-            if (!characterInputComponent.shouldCompress && isCompressed) {
-                isCompressed = false;
-                ResizeCharacter(Size.DEFAULT);
-            }
-        }
-        if (!isCompressed) {
-            if (characterInputComponent.shouldInflate && !isInflated) {
-                isInflated = true;
-                ResizeCharacter(Size.LARGE);
-            }
-            if (!characterInputComponent.shouldInflate && isInflated) {
-                isInflated = false;
-                ResizeCharacter(Size.DEFAULT);
-            }
-        }
+    void Compress() {
+        isCompressed = true;
+        ResizeCharacter(Size.SMALL);
+    }
+
+    void Inflate() {
+        isInflated = true;
+        ResizeCharacter(Size.LARGE);
+    }
+    void NormalizeSize() {
+        isInflated = false;
+        isCompressed = false;
+        ResizeCharacter(Size.DEFAULT);
     }
 
     void ResizeCharacter(Size size) {
@@ -117,10 +134,37 @@ public class CharacterMotor : MonoBehaviour {
     }
 
     public void BreakThrough() {
-        if(currentSize == Size.LARGE) {
+        if (currentSize == Size.LARGE) {
             physicsComponent.velocity = Vector2.zero;
         } else {
             BounceBack();
+        }
+    }
+
+    public void TriggerInflate() {
+        if (!usingInputDevices) {
+            usingOnScreenButtons = true;
+            if (!isCompressed && !isInflated) {
+                Inflate();
+            }
+        }
+    }
+
+    public void TriggerCompress() {
+        if (!usingInputDevices) {
+            usingOnScreenButtons = true;
+            if (!isCompressed && !isInflated) {
+                Compress();
+            }
+        }
+    }
+
+    public void TriggerNormalize() {
+        if (!usingInputDevices) {
+            usingOnScreenButtons = false;
+            if (isCompressed || isInflated) {
+                NormalizeSize();
+            }
         }
     }
     IEnumerator Countdown() {

@@ -44,6 +44,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TouchInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""f8fccdd1-f957-4700-8c1b-5e09090b91cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -62,17 +71,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""b5c65b15-be77-4000-9bf7-d47a3e0bdb41"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Compress"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4d6f6d2b-b5e8-4617-9891-94bf15b4cd67"",
-                    ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -104,12 +102,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""96445f49-13ab-44b9-a3f6-d83f49d0bf2a"",
-                    ""path"": ""<Touchscreen>/touch*/Press"",
+                    ""id"": ""7cec035a-fa59-4520-82b8-be46b69f877f"",
+                    ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Inflate"",
+                    ""action"": ""TouchInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -649,6 +647,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Compress = m_Player.FindAction("Compress", throwIfNotFound: true);
         m_Player_Inflate = m_Player.FindAction("Inflate", throwIfNotFound: true);
+        m_Player_TouchInteract = m_Player.FindAction("TouchInteract", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -724,12 +723,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Compress;
     private readonly InputAction m_Player_Inflate;
+    private readonly InputAction m_Player_TouchInteract;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Compress => m_Wrapper.m_Player_Compress;
         public InputAction @Inflate => m_Wrapper.m_Player_Inflate;
+        public InputAction @TouchInteract => m_Wrapper.m_Player_TouchInteract;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -745,6 +746,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Inflate.started += instance.OnInflate;
             @Inflate.performed += instance.OnInflate;
             @Inflate.canceled += instance.OnInflate;
+            @TouchInteract.started += instance.OnTouchInteract;
+            @TouchInteract.performed += instance.OnTouchInteract;
+            @TouchInteract.canceled += instance.OnTouchInteract;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -755,6 +759,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Inflate.started -= instance.OnInflate;
             @Inflate.performed -= instance.OnInflate;
             @Inflate.canceled -= instance.OnInflate;
+            @TouchInteract.started -= instance.OnTouchInteract;
+            @TouchInteract.performed -= instance.OnTouchInteract;
+            @TouchInteract.canceled -= instance.OnTouchInteract;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -894,6 +901,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnCompress(InputAction.CallbackContext context);
         void OnInflate(InputAction.CallbackContext context);
+        void OnTouchInteract(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

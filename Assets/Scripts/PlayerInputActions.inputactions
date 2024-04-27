@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TouchInteract",
+                    "type": "Button",
+                    "id": "f8fccdd1-f957-4700-8c1b-5e09090b91cf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -40,17 +49,6 @@
                     "name": "",
                     "id": "b5c65b15-be77-4000-9bf7-d47a3e0bdb41",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Compress",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4d6f6d2b-b5e8-4617-9891-94bf15b4cd67",
-                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -82,12 +80,12 @@
                 },
                 {
                     "name": "",
-                    "id": "96445f49-13ab-44b9-a3f6-d83f49d0bf2a",
-                    "path": "<Touchscreen>/touch*/Press",
+                    "id": "7cec035a-fa59-4520-82b8-be46b69f877f",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Inflate",
+                    "action": "TouchInteract",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

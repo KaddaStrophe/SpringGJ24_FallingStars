@@ -16,8 +16,12 @@ public class CharacterInput : MonoBehaviour {
         inputActions.Player.Compress.canceled += StopToCompress;
         inputActions.Player.Inflate.started += IntentToInflate;
         inputActions.Player.Inflate.canceled += StopToInflate;
+        //inputActions.Player.TouchInteract.started += IntentToTouch;
+        //inputActions.Player.TouchInteract.canceled += StopToTouch;
     }
 
+    //private void StopToTouch(InputAction.CallbackContext context) => throw new NotImplementedException();
+    //private void IntentToTouch(InputAction.CallbackContext context) => throw new NotImplementedException();
 
     protected void OnDisable() {
         inputActions.Disable();
