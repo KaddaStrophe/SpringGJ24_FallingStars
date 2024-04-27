@@ -2,14 +2,14 @@ using System;
 using System.Collections;
 using Unity.Collections;
 using UnityEngine;
-public enum Size {
-    DEFAULT, SMALL, LARGE
-}
+
 public class CharacterMotor : MonoBehaviour {
     [SerializeField]
     StarPhysics physicsComponent = default;
     [SerializeField]
     CharacterInput characterInputComponent = default;
+    [SerializeField]
+    CharacterChannel characterEventChannel = default;
 
     [Header("Character")]
     [SerializeField]
@@ -19,21 +19,19 @@ public class CharacterMotor : MonoBehaviour {
 
     [Header("Character Deformation Parameters")]
     [SerializeField]
-    float visualSizeSmall = 0.5f;
+    public float visualSizeSmall = 0.5f;
     [SerializeField]
     float gravitySmall = -9.8f;
     [SerializeField]
-    float visualSizeDefault = 1.0f;
+    public float visualSizeDefault = 1.0f;
     [SerializeField]
     float gravityDefault = -9.8f;
     [SerializeField]
-    float visualSizeLarge = 2.3f;
+    public float visualSizeLarge = 2.3f;
     [SerializeField]
     float gravityLarge = -30f;
 
     [Header("Debug")]
-    [SerializeField]
-    Vector2 movement = new Vector2(10f, 10f);
     [SerializeField]
     float bounceBackTimer = 1f;
     [SerializeField, ReadOnly]
@@ -56,7 +54,7 @@ public class CharacterMotor : MonoBehaviour {
         if (!characterCollider) {
             TryGetComponent(out characterCollider);
         }
-        ResizeCharacter(Size.DEFAULT);
+        NormalizeSize();
     }
 
     protected void FixedUpdate() {
@@ -88,35 +86,38 @@ public class CharacterMotor : MonoBehaviour {
     void Compress() {
         isCompressed = true;
         ResizeCharacter(Size.SMALL);
+        characterEventChannel.RaiseCharacterResize(this);
     }
 
     void Inflate() {
         isInflated = true;
         ResizeCharacter(Size.LARGE);
+        characterEventChannel.RaiseCharacterResize(this);
     }
     void NormalizeSize() {
         isInflated = false;
         isCompressed = false;
         ResizeCharacter(Size.DEFAULT);
+        characterEventChannel.RaiseCharacterResize(this);
     }
 
     void ResizeCharacter(Size size) {
         switch (size) {
             case Size.DEFAULT:
-                characterRenderer.transform.localScale = new Vector3(visualSizeDefault, visualSizeDefault, 1f);
-                characterCollider.radius = visualSizeDefault / 2f;
+                //characterRenderer.transform.localScale = new Vector3(visualSizeDefault, visualSizeDefault, 1f);
+                //characterCollider.radius = visualSizeDefault / 2f;
                 physicsComponent.SetGravity(gravityDefault);
                 currentSize = Size.DEFAULT;
                 break;
             case Size.SMALL:
-                characterRenderer.transform.localScale = new Vector3(visualSizeSmall, visualSizeSmall, 1f);
-                characterCollider.radius = visualSizeSmall / 2f;
+                //characterRenderer.transform.localScale = new Vector3(visualSizeSmall, visualSizeSmall, 1f);
+                //characterCollider.radius = visualSizeSmall / 2f;
                 physicsComponent.SetGravity(gravitySmall);
                 currentSize = Size.SMALL;
                 break;
             case Size.LARGE:
-                characterRenderer.transform.localScale = new Vector3(visualSizeLarge, visualSizeLarge, 1f);
-                characterCollider.radius = visualSizeLarge / 2f;
+                //characterRenderer.transform.localScale = new Vector3(visualSizeLarge, visualSizeLarge, 1f);
+                //characterCollider.radius = visualSizeLarge / 2f;
                 physicsComponent.SetGravity(gravityLarge);
                 currentSize = Size.LARGE;
                 break;
@@ -170,5 +171,8 @@ public class CharacterMotor : MonoBehaviour {
     IEnumerator Countdown() {
         yield return new WaitForSeconds(bounceBackTimer);
         alreadyBouncedBack = false;
+    }
+    public Size GetCurrentSize() {
+        return currentSize;
     }
 }
