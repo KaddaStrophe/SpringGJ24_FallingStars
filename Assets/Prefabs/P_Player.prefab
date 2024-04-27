@@ -302,10 +302,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cinemachineCamera: {fileID: 0}
   characterEventChannel: {fileID: 11400000, guid: 30b0a3241ab9902498f9df7aacdc5083, type: 2}
-  amplitudeAndFrequencyLargeSize: {x: 3, y: 2}
+  amplitudeAndFrequencyLargeSize: {x: 2, y: 2}
   obstacleEventChannel: {fileID: 11400000, guid: 3d114b753cfa3774aac44de8b3a9f724, type: 2}
   amplitudeAndFrequencyObstacleHit: {x: 2, y: 8}
   screenShakeDurationObstacleHit: 0.3
+  obstacleHitSizeMultiplier: {x: 0.5, y: 1, z: 1.5}
+  amplitudeAndFrequencyObstacleCrash: {x: 8, y: 8}
+  screenShakeDurationObstacleCrash: 1
 --- !u!1 &5066110160784464892
 GameObject:
   m_ObjectHideFlags: 0

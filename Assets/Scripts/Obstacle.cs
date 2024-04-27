@@ -6,13 +6,20 @@ public class Obstacle : MonoBehaviour {
 
     protected void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
-            obstacleEventChannel.RaiseObstacleHit(this);
+            collision.gameObject.TryGetComponent<CharacterMotor>(out var characterMotor);
+            obstacleEventChannel.RaiseObstacleHit(this, characterMotor);
         }
     }
 
     protected void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
-            obstacleEventChannel.RaiseObstacleCrash(this);
+            if(collision.TryGetComponent<CharacterMotor>(out var characterMotor)) {
+                if(characterMotor.GetCurrentSize() == Size.LARGE) {
+                    obstacleEventChannel.RaiseObstacleCrash(this, characterMotor);
+                } else {
+                    obstacleEventChannel.RaiseObstacleHit(this, characterMotor);
+                }
+            }
         }
     }
 }
