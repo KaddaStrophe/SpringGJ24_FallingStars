@@ -28,6 +28,6 @@ public class CharacterVisuals : MonoBehaviour {
             Size.LARGE => new Vector3(character.visualSizeLarge, character.visualSizeLarge, 1),
             _ => throw new NotImplementedException(),
         };
-        lastTween = LeanTween.scale(gameObject, newScale, easeTime).setEase(easeType);
+        lastTween = LeanTween.scale(gameObject, newScale, easeTime).setEase(easeType).setOnComplete(() => { transform.localScale = newScale; });
     }
 }
