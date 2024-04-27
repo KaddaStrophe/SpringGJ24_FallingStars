@@ -14,8 +14,6 @@ public class CharacterMotor : MonoBehaviour {
 
     [Header("Character")]
     [SerializeField]
-    GameObject characterRenderer = default;
-    [SerializeField]
     TrailRenderer trailRenderer = default;
     [SerializeField]
     CircleCollider2D characterCollider = default;

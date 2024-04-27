@@ -1504,6 +1504,7 @@ GameObject:
   - component: {fileID: 1612219180}
   - component: {fileID: 1612219182}
   - component: {fileID: 1612219181}
+  - component: {fileID: 1612219183}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -1540,7 +1541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
   m_LookaheadTime: 0.4
-  m_LookaheadSmoothing: 20
+  m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
   m_YDamping: 1
@@ -1581,6 +1582,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1612219183
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612219179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1673519943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1945,6 +1963,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2604135492165084310, guid: caa5f0f955ffdd1469079ed14fbc2d33, type: 3}
+      propertyPath: cinemachineCamera
+      value: 
+      objectReference: {fileID: 570377279}
     - target: {fileID: 3743030012698710571, guid: caa5f0f955ffdd1469079ed14fbc2d33, type: 3}
       propertyPath: m_LocalPosition.y
       value: -200

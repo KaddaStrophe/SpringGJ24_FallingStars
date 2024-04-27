@@ -303,6 +303,9 @@ MonoBehaviour:
   cinemachineCamera: {fileID: 0}
   characterEventChannel: {fileID: 11400000, guid: 30b0a3241ab9902498f9df7aacdc5083, type: 2}
   amplitudeAndFrequencyLargeSize: {x: 3, y: 2}
+  obstacleEventChannel: {fileID: 11400000, guid: 3d114b753cfa3774aac44de8b3a9f724, type: 2}
+  amplitudeAndFrequencyObstacleHit: {x: 2, y: 8}
+  screenShakeDurationObstacleHit: 0.3
 --- !u!1 &5066110160784464892
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +457,6 @@ MonoBehaviour:
   physicsComponent: {fileID: 3486895541078667317}
   characterInputComponent: {fileID: 2012632533502417461}
   characterEventChannel: {fileID: 11400000, guid: 30b0a3241ab9902498f9df7aacdc5083, type: 2}
-  characterRenderer: {fileID: 6017515053059833544}
   trailRenderer: {fileID: 5648948795454529655}
   characterCollider: {fileID: 5069288155254542913}
   visualSizeSmall: 0.5
