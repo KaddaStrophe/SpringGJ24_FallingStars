@@ -15,6 +15,8 @@ public class CharacterMotor : MonoBehaviour {
     [SerializeField]
     GameObject characterRenderer = default;
     [SerializeField]
+    TrailRenderer trailRenderer = default;
+    [SerializeField]
     CircleCollider2D characterCollider = default;
 
     [Header("Character Deformation Parameters")]
@@ -106,18 +108,21 @@ public class CharacterMotor : MonoBehaviour {
             case Size.DEFAULT:
                 //characterRenderer.transform.localScale = new Vector3(visualSizeDefault, visualSizeDefault, 1f);
                 //characterCollider.radius = visualSizeDefault / 2f;
+                trailRenderer.widthMultiplier = 1;
                 physicsComponent.SetGravity(gravityDefault);
                 currentSize = Size.DEFAULT;
                 break;
             case Size.SMALL:
                 //characterRenderer.transform.localScale = new Vector3(visualSizeSmall, visualSizeSmall, 1f);
                 //characterCollider.radius = visualSizeSmall / 2f;
+                trailRenderer.widthMultiplier = 0.5f;
                 physicsComponent.SetGravity(gravitySmall);
                 currentSize = Size.SMALL;
                 break;
             case Size.LARGE:
                 //characterRenderer.transform.localScale = new Vector3(visualSizeLarge, visualSizeLarge, 1f);
                 //characterCollider.radius = visualSizeLarge / 2f;
+                trailRenderer.widthMultiplier = 2f;
                 physicsComponent.SetGravity(gravityLarge);
                 currentSize = Size.LARGE;
                 break;
