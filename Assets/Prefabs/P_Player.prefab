@@ -256,6 +256,53 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1022481351367459285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8959265541444558234}
+  - component: {fileID: 2604135492165084310}
+  m_Layer: 0
+  m_Name: Screenshake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8959265541444558234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022481351367459285}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3743030012698710571}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2604135492165084310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022481351367459285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b920c8a4766dc9479ad851a598d4acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 0}
+  characterEventChannel: {fileID: 11400000, guid: 30b0a3241ab9902498f9df7aacdc5083, type: 2}
+  amplitudeAndFrequencyLargeSize: {x: 3, y: 2}
 --- !u!1 &5066110160784464892
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +343,7 @@ Transform:
   - {fileID: 1663563220865903126}
   - {fileID: 7488374486612104324}
   - {fileID: 7949983342197919114}
+  - {fileID: 8959265541444558234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &5069288155254542913
@@ -408,7 +456,7 @@ MonoBehaviour:
   characterEventChannel: {fileID: 11400000, guid: 30b0a3241ab9902498f9df7aacdc5083, type: 2}
   characterRenderer: {fileID: 6017515053059833544}
   trailRenderer: {fileID: 5648948795454529655}
-  characterCollider: {fileID: 0}
+  characterCollider: {fileID: 5069288155254542913}
   visualSizeSmall: 0.5
   gravitySmall: -9.8
   visualSizeDefault: 1.3
