@@ -30,11 +30,13 @@ public class ScreenshakeHandler : MonoBehaviour {
 
     Vector2 currentScreenShake = Vector2.zero;
     CinemachineBasicMultiChannelPerlin cinemachinePerlinNoise = default;
+    bool endGame = false;
 
     protected void OnEnable() {
         characterEventChannel.OnCharacterResize += MovingScreenshake;
         obstacleEventChannel.OnObstacleHit += ObstacleHitShake;
         obstacleEventChannel.OnObstacleCrash += ObstacleCrashShake;
+        obstacleEventChannel.OnObstacleEnd += ObstacleEndShake;
         cinemachinePerlinNoise = cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
@@ -42,6 +44,7 @@ public class ScreenshakeHandler : MonoBehaviour {
         characterEventChannel.OnCharacterResize -= MovingScreenshake;
         obstacleEventChannel.OnObstacleHit -= ObstacleHitShake;
         obstacleEventChannel.OnObstacleCrash -= ObstacleCrashShake;
+        obstacleEventChannel.OnObstacleEnd -= ObstacleEndShake;
     }
 
     void ObstacleHitShake(Obstacle obstacle, CharacterMotor character) {
@@ -64,16 +67,25 @@ public class ScreenshakeHandler : MonoBehaviour {
         StartCoroutine(ScreenShakingTime(screenShakeDurationObstacleCrash));
     }
 
+    void ObstacleEndShake(Obstacle obstacle, CharacterMotor characterMotor) {
+        endGame = true;
+        cinemachinePerlinNoise.m_AmplitudeGain = amplitudeAndFrequencyObstacleCrash.x;
+        cinemachinePerlinNoise.m_FrequencyGain = amplitudeAndFrequencyObstacleCrash.y;
+        StartCoroutine(ScreenShakingTime(screenShakeDurationObstacleCrash));
+    }
+
     void MovingScreenshake(CharacterMotor character) {
-        if (character.GetCurrentSize() == Size.LARGE) {
-            cinemachinePerlinNoise.m_AmplitudeGain = amplitudeAndFrequencyLargeSize.x;
-            cinemachinePerlinNoise.m_FrequencyGain = amplitudeAndFrequencyLargeSize.y;
-            currentScreenShake = amplitudeAndFrequencyLargeSize;
-        }
-        if (character.GetCurrentSize() != Size.LARGE) {
-            cinemachinePerlinNoise.m_AmplitudeGain = 0f;
-            cinemachinePerlinNoise.m_FrequencyGain = 0f;
-            currentScreenShake = Vector2.zero;
+        if (!endGame) {
+            if (character.GetCurrentSize() == Size.LARGE) {
+                cinemachinePerlinNoise.m_AmplitudeGain = amplitudeAndFrequencyLargeSize.x;
+                cinemachinePerlinNoise.m_FrequencyGain = amplitudeAndFrequencyLargeSize.y;
+                currentScreenShake = amplitudeAndFrequencyLargeSize;
+            }
+            if (character.GetCurrentSize() != Size.LARGE) {
+                cinemachinePerlinNoise.m_AmplitudeGain = 0f;
+                cinemachinePerlinNoise.m_FrequencyGain = 0f;
+                currentScreenShake = Vector2.zero;
+            }
         }
     }
 

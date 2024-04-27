@@ -3,6 +3,8 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour {
     [SerializeField]
     ObstacleChannel obstacleEventChannel = default;
+    [SerializeField]
+    bool isEnd = false;
 
     protected void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
@@ -13,11 +15,15 @@ public class Obstacle : MonoBehaviour {
 
     protected void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
-            if(collision.TryGetComponent<CharacterMotor>(out var characterMotor)) {
-                if(characterMotor.GetCurrentSize() == Size.LARGE) {
-                    obstacleEventChannel.RaiseObstacleCrash(this, characterMotor);
+            if (collision.TryGetComponent<CharacterMotor>(out var characterMotor)) {
+                if (isEnd) {
+                    obstacleEventChannel.RaiseObstacleEnd(this, characterMotor);
                 } else {
-                    obstacleEventChannel.RaiseObstacleHit(this, characterMotor);
+                    if (characterMotor.GetCurrentSize() == Size.LARGE) {
+                        obstacleEventChannel.RaiseObstacleCrash(this, characterMotor);
+                    } else {
+                        obstacleEventChannel.RaiseObstacleHit(this, characterMotor);
+                    }
                 }
             }
         }
