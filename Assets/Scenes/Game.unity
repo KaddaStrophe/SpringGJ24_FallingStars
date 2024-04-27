@@ -776,9 +776,9 @@ MonoBehaviour:
   obstacleRatesLvl3: 010000000200000003000000
   obstacleDistance: 20
   levelDurations:
-  - 20
-  - 20
-  - 20
+  - 200
+  - 200
+  - 200
   lastObstacleVertPos: 0
   currentHeight: 0
   heightDelta: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
   rotationEaseType: 15
   zoomoutEaseType: 16
   endCanvas: {fileID: 1944442008}
-  canvasBlendInDelay: 6
+  canvasBlendInDelay: 12
   canvasAlphaTime: 2
 --- !u!4 &2091328169
 Transform:
@@ -900,6 +900,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1137482076842047736, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137482076842047736, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137482076842047736, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137482076842047736, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137482076842047736, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137482076842047736, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960893923316760597, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960893923316760597, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960893923316760597, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960893923316760597, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960893923316760597, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960893923316760597, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3560862143555428145, guid: c4241cf6f6e86674fb8743c83d66a786, type: 3}
       propertyPath: m_Name
       value: EndScreen
