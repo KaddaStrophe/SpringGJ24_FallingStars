@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Threading;
+using Unity.Collections;
 using UnityEngine;
 public enum Size {
     DEFAULT, SMALL, LARGE
@@ -32,10 +35,15 @@ public class CharacterMotor : MonoBehaviour {
     [Header("Debug")]
     [SerializeField]
     Vector2 movement = new Vector2(10f, 10f);
+    [SerializeField]
+    float bounceBackTimer = 1f;
+    [SerializeField, ReadOnly]
+    Size currentSize = Size.DEFAULT;
 
     Vector2 currentAcceleration = Vector2.zero;
     bool isCompressed = false;
     bool isInflated = false;
+    bool alreadyBouncedBack = false;
 
     protected void OnEnable() {
         if (!physicsComponent) {
@@ -47,6 +55,7 @@ public class CharacterMotor : MonoBehaviour {
         if (!characterCollider) {
             TryGetComponent(out characterCollider);
         }
+        ResizeCharacter(Size.DEFAULT);
     }
 
     protected void FixedUpdate() {
@@ -54,12 +63,10 @@ public class CharacterMotor : MonoBehaviour {
 
         if (!isInflated) {
             if (characterInputComponent.shouldCompress && !isCompressed) {
-                Debug.Log("Compress");
                 isCompressed = true;
                 ResizeCharacter(Size.SMALL);
             }
             if (!characterInputComponent.shouldCompress && isCompressed) {
-                Debug.Log("Decompress");
                 isCompressed = false;
                 ResizeCharacter(Size.DEFAULT);
             }
@@ -82,16 +89,19 @@ public class CharacterMotor : MonoBehaviour {
                 characterRenderer.transform.localScale = new Vector3(visualSizeDefault, visualSizeDefault, 1f);
                 characterCollider.radius = visualSizeDefault / 2f;
                 physicsComponent.SetGravity(gravityDefault);
+                currentSize = Size.DEFAULT;
                 break;
             case Size.SMALL:
                 characterRenderer.transform.localScale = new Vector3(visualSizeSmall, visualSizeSmall, 1f);
                 characterCollider.radius = visualSizeSmall / 2f;
                 physicsComponent.SetGravity(gravitySmall);
+                currentSize = Size.SMALL;
                 break;
             case Size.LARGE:
                 characterRenderer.transform.localScale = new Vector3(visualSizeLarge, visualSizeLarge, 1f);
                 characterCollider.radius = visualSizeLarge / 2f;
                 physicsComponent.SetGravity(gravityLarge);
+                currentSize = Size.LARGE;
                 break;
             default:
                 throw new NotImplementedException();
@@ -99,6 +109,22 @@ public class CharacterMotor : MonoBehaviour {
     }
 
     public void BounceBack() {
-        physicsComponent.velocity *= -1.5f;
+        if (!alreadyBouncedBack) {
+            physicsComponent.velocity *= -1.5f;
+            alreadyBouncedBack = true;
+        }
+        StartCoroutine(Countdown());
+    }
+
+    public void BreakThrough() {
+        if(currentSize == Size.LARGE) {
+            physicsComponent.velocity = Vector2.zero;
+        } else {
+            BounceBack();
+        }
+    }
+    IEnumerator Countdown() {
+        yield return new WaitForSeconds(bounceBackTimer);
+        alreadyBouncedBack = false;
     }
 }

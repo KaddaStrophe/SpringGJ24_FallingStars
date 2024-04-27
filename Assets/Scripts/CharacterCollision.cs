@@ -9,4 +9,10 @@ public class CharacterCollision : MonoBehaviour {
             motor.BounceBack();
         }
     }
+
+    protected void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.CompareTag("Obstacle")) {
+            motor.BreakThrough();
+        }
+    }
 }
