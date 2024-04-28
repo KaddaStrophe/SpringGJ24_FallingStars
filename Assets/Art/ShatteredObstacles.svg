@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1938.0508"
+   height="528.56097"
+   viewBox="0 0 193.80508 52.856097"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="ShatteredWall18.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="ShatteredObstacles.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.25"
+     inkscape:cx="698"
+     inkscape:cy="1088"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="360"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Background"
+     sodipodi:insensitive="true"
+     transform="translate(-34.497458,-5.33211)"
+     style="display:none">
+    <rect
+       style="fill:#000000;stroke:none;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect397"
+       width="210"
+       height="297"
+       x="0"
+       y="0" />
+  </g>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.497458,-5.33211)">
+    <path
+       id="rect234"
+       style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       d="m 102.18916,118.4568 1.42069,-8.36076 3.42963,-1.89804 z m 97.24821,36.33557 h -52.16163 l -9.05532,-13.68711 6.91208,-20.84373 z m -54.30073,-34.54324 6.07273,-18.31269 h 50.69317 v 52.85593 h -2.40671 z m -6.92222,20.85013 -23.76521,-35.74862 1.44837,-3.41436 h 35.26616 z m -33.75031,-27.4004 2.61175,-5.52945 1.29192,-0.7146 0.65186,-0.8576 2.92092,-0.68182 -0.73963,2.87244 -1.78054,2.49322 z m -4.10842,15.55819 1.81381,-10.68935 2.28443,-4.83783 4.98676,-2.43685 1.1871,-1.66096 6.90793,0.3796 3.97685,6.00124 z m 21.16102,-13.24002 25.74769,38.77518 H 95.945056 l 4.412054,-25.51668 z m -10.88494,-6.3922 0.5889,-0.82253 0.74511,-2.88832 2.48097,-0.55351 3.0838,4.64499 z m -1.58701,-3.0563 3.55145,-4.63222 h 3.26418 l -1.42548,3.37718 z m -5.41813,3.47592 1.40132,-8.10814 h 7.54 l -4.22532,5.50236 z m -7.589448,-8.10814 h 8.949218 l -1.906,11.0682 -5.203958,-3.11525 z M 19.033435,154.79238 H 8.0974579 V 101.93642 H 66.708073 l -3.523541,12.04028 z m 44.145251,-40.7923 -11.938707,40.7923 H 19.083044 Z m 31.01298,-12.06366 h 1.820764 l 1.839483,7.97423 -1.5915,5.09989 -4.279517,-4.95679 z m -0.796407,9.76367 2.856886,3.31045 -12.406276,39.78184 H 51.329166 l 8.955121,-30.58068 z m -33.108049,12.497 6.520081,-22.26067 h 27.37999 l -2.211267,8.11799 1.41461,1.6414 z m 40.74834,0.72042 -5.12662,29.8745 H 83.963851 L 94.68819,120.17687 Z m -6.34736,-4.74788 3.178473,-10.25198 5.202217,3.12648 -2.03333,11.85584 z"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+       inkscape:label="ShatteredWall" />
+    <g
+       id="g556"
+       transform="translate(0,6.0066383)"
+       style="display:none"
+       sodipodi:insensitive="true">
+      <rect
+         style="fill:#ffffff;stroke:none;stroke-width:10.0588;stroke-linecap:round;paint-order:markers fill stroke"
+         id="rect550"
+         width="193.80499"
+         height="3.1145656"
+         x="8.0975409"
+         y="92.815216" />
+      <rect
+         style="fill:#008000;stroke:none;stroke-width:7.11265;stroke-linecap:round;paint-order:markers fill stroke"
+         id="rect552"
+         width="96.902496"
+         height="3.1145656"
+         x="8.097537"
+         y="92.815216" />
+    </g>
+    <g
+       id="g614"
+       inkscape:label="ShatteredAndDivided"
+       inkscape:export-filename="ShatteredWall.svg"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"
+       style="display:inline"
+       transform="translate(26.4,-156.4)"
+       sodipodi:insensitive="true">
+      <path
+         style="display:inline;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 94.68819,179.96546 3.178473,-10.25198 5.202217,3.12648 -2.03333,11.85584 z"
+         id="path594"
+         inkscape:export-filename="ShatteredWall.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 101.03555,184.71334 -5.12662,29.8745 H 83.963851 L 94.68819,179.9727 Z"
+         id="path592" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 60.28721,183.99292 6.520081,-22.26067 h 27.37999 l -2.211267,8.11799 1.41461,1.6414 z"
+         id="path590" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 93.395259,171.49592 2.856886,3.31045 -12.406276,39.78184 H 51.329166 l 8.955121,-30.58068 z"
+         id="path588" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 94.191666,161.73225 h 1.820764 l 1.839483,7.97423 -1.5915,5.09989 -4.279517,-4.95679 z"
+         id="path586" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 63.178686,173.79591 -11.938707,40.7923 H 19.083044 Z"
+         id="path584" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="M 19.033435,214.58821 H 8.0974579 V 161.73225 H 66.708073 l -3.523541,12.04028 z"
+         id="path582" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 96.037182,161.73214 h 8.949218 l -1.906,11.0682 -5.203958,-3.11525 z"
+         id="path580" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 103.62663,169.84028 1.40132,-8.10814 h 7.54 l -4.22532,5.50236 z"
+         id="path578" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 109.04476,166.36436 3.55145,-4.63222 h 3.26418 l -1.42548,3.37718 z"
+         id="path576" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 110.63177,169.42066 0.5889,-0.82253 0.74511,-2.88832 2.48097,-0.55351 3.0838,4.64499 z"
+         id="path574" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 121.51671,175.81286 25.74769,38.77518 H 95.945056 l 4.412054,-25.51668 z"
+         id="path572" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 100.35569,189.05288 1.81381,-10.68935 2.28443,-4.83783 4.98676,-2.43685 1.1871,-1.66096 6.90793,0.3796 3.97685,6.00124 z"
+         id="path570" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 104.46411,173.49469 2.61175,-5.52945 1.29192,-0.7146 0.65186,-0.8576 2.92092,-0.68182 -0.73963,2.87244 -1.78054,2.49322 z"
+         id="path568" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 138.21442,200.89509 -23.76521,-35.74862 1.44837,-3.41436 h 35.26616 z"
+         id="path566" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 145.13664,180.04496 6.07273,-18.31269 h 50.69317 v 52.85593 h -2.40671 z"
+         id="path564" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 199.43737,214.5882 h -52.16163 l -9.05532,-13.68711 6.91208,-20.84373 z"
+         id="path562" />
+      <path
+         style="display:none;fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+         d="m 102.18916,178.25263 1.42069,-8.36076 3.42963,-1.89804 z"
+         id="path558" />
+    </g>
+  </g>
+</svg>

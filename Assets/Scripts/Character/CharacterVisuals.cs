@@ -32,7 +32,7 @@ public class CharacterVisuals : MonoBehaviour {
     }
 
     void VisualizeResizing(CharacterMotor character) {
-        LeanTween.cancel(lastTween.id);
+        LeanTween.cancel(gameObject);
         newScale = character.GetCurrentSize() switch {
             Size.DEFAULT => new Vector3(character.visualSizeDefault, character.visualSizeDefault, 1),
             Size.SMALL => new Vector3(character.visualSizeSmall, character.visualSizeSmall, 1),

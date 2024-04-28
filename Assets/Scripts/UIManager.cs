@@ -32,8 +32,7 @@ public class UIManager : MonoBehaviour {
     }
 
     void DisableEndScreen() {
-        endCanvas.gameObject.SetActive(false);
-        endCanvas.alpha = 0;
+        SetEndCanvasInvisible();
     }
 
     protected void OnDisable() {
@@ -46,11 +45,20 @@ public class UIManager : MonoBehaviour {
     }
 
     public void BeginGame() {
-        LeanTween.alphaCanvas(startCanvas, 0, startCanvasBlendOutTime).setDelay(startCanvasBlendOutDelay).setOnComplete(() => { startCanvas.gameObject.SetActive(false); });
+        LeanTween.alphaCanvas(startCanvas, 0, startCanvasBlendOutTime).setDelay(startCanvasBlendOutDelay).setOnComplete(() => { SetStartCanvasInvisible(); });
     }
 
     public void RestartGame() {
-        LeanTween.alphaCanvas(endCanvas, 0, endCanvasBlendOutTime).setDelay(endCanvasBlendOutDelay).setOnComplete(() => { endCanvas.gameObject.SetActive(false); });
+        LeanTween.alphaCanvas(endCanvas, 0, endCanvasBlendOutTime).setDelay(endCanvasBlendOutDelay).setOnComplete(() => { SetEndCanvasInvisible(); });
     }
 
+    void SetStartCanvasInvisible() {
+        startCanvas.alpha = 0;
+        startCanvas.gameObject.SetActive(false);
+    }
+
+    void SetEndCanvasInvisible() {
+        endCanvas.alpha = 0;
+        endCanvas.gameObject.SetActive(false);
+    }
 }

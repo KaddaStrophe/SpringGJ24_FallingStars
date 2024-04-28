@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300mm"
+   height="200mm"
+   viewBox="0 0 300 200"
+   version="1.1"
+   id="svg737"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="Clouds.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview739"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.4204826"
+     inkscape:cx="850.21353"
+     inkscape:cy="542.23409"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="360"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer3" />
+  <defs
+     id="defs734" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <rect
+       style="fill:#5fbcd3;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect910"
+       width="337.26297"
+       height="216.23985"
+       x="-24.471586"
+       y="-5.3392553" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Cloud1"
+     style="display:inline"
+     inkscape:export-filename="S_Cloud_Big.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300">
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="path1121"
+       cx="64.960938"
+       cy="65.628349"
+       rx="33.37035"
+       ry="29.143436" />
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1123"
+       cx="93.276619"
+       cy="87.022415"
+       rx="33.37035"
+       ry="29.143436" />
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1125"
+       cx="109.00755"
+       cy="54.931313"
+       rx="33.37035"
+       ry="29.143436" />
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1127"
+       cx="142.98637"
+       cy="82.617752"
+       rx="33.37035"
+       ry="29.143436" />
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1129"
+       cx="164.38045"
+       cy="56.189785"
+       rx="33.37035"
+       ry="29.143436" />
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1131"
+       cx="92.6474"
+       cy="55.560547"
+       rx="33.37035"
+       ry="29.143436" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g1145"
+     inkscape:label="Cloud2"
+     style="display:none"
+     inkscape:export-filename="S_Cloud_Small.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300">
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1143"
+       cx="243.03511"
+       cy="81.988518"
+       rx="33.37035"
+       ry="29.143436" />
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1147"
+       cx="205.9101"
+       cy="69.403763"
+       rx="33.37035"
+       ry="29.143436" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g1155"
+     inkscape:label="Cloud3"
+     inkscape:export-filename="S_Cloud_Mid.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1151"
+       cx="243.03511"
+       cy="81.988518"
+       rx="33.37035"
+       ry="29.143436" />
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1153"
+       cx="205.9101"
+       cy="69.403763"
+       rx="33.37035"
+       ry="29.143436" />
+    <ellipse
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;paint-order:markers fill stroke"
+       id="ellipse1159"
+       cx="194.58382"
+       cy="88.280876"
+       rx="33.37035"
+       ry="29.143436" />
+  </g>
+</svg>

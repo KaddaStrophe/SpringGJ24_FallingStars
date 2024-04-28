@@ -50,6 +50,7 @@ public class ObstacleSpawner : MonoBehaviour {
     int levelCounter = 0;
     Dictionary<float, List<int>> levelRates = new Dictionary<float, List<int>>();
     Vector3 colorSteps = Vector3.zero;
+    GameObject endObstacleInstance = default;
 
     protected void OnEnable() {
         levelRates.Add(levelCounter, obstacleRatesLvl1);
@@ -60,6 +61,9 @@ public class ObstacleSpawner : MonoBehaviour {
         nextLevelStart = lastObstacleVertPos - levelDurations[levelCounter];
         levelCounter++;
         CalculateColorSteps();
+
+        endObstacleInstance = Instantiate(obstacleEnd, obstacleContainer.transform);
+        endObstacleInstance.transform.position = new Vector3(1000f, 1000f, 1000f);
     }
 
     void CalculateColorSteps() {
@@ -84,7 +88,6 @@ public class ObstacleSpawner : MonoBehaviour {
                 SpawnObstacle(currentHeight);
             }
             if (currentHeight <= nextLevelStart) {
-                // TODO: Trigger Ending
                 if (levelCounter < levelDurations.Count) {
                     nextLevelStart -= levelDurations[levelCounter];
                     levelCounter++;
@@ -102,8 +105,7 @@ public class ObstacleSpawner : MonoBehaviour {
     }
 
     void EndGame() {
-        var instance = Instantiate(obstacleEnd, obstacleContainer.transform);
-        instance.transform.position = new Vector3(0f, currentHeight - obstacleEndDistance, 0f);
+        endObstacleInstance.transform.position = new Vector3(0f, currentHeight - obstacleEndDistance, 0f);
     }
 
     void SpawnObstacle(float currentHeight) {
