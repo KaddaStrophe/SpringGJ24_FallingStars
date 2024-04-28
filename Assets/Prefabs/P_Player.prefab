@@ -494,7 +494,7 @@ MonoBehaviour:
   gravityDefault: -9.8
   visualSizeLarge: 2.3
   gravityLarge: -30
-  gravityEnd: -1
+  gravityEnd: -0.5
   meteorVFX: {fileID: 6508494839787326070}
   bounceBackTimer: 0.1
   currentSize: 0

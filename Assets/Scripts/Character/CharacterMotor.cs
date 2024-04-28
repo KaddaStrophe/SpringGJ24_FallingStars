@@ -37,6 +37,8 @@ public class CharacterMotor : MonoBehaviour {
     float gravityEnd = -1;
     [SerializeField]
     VisualEffect meteorVFX = default;
+    [SerializeField]
+    float waitTimeBeforeSlowDownAtEnd = 1f;
 
     [Header("Debug")]
     [SerializeField]
@@ -176,8 +178,7 @@ public class CharacterMotor : MonoBehaviour {
 
     void EndGame(Obstacle obstacle, CharacterMotor characterMotor) {
         canMove = false;
-        physicsComponent.velocity = Vector2.zero;
-        physicsComponent.SetGravity(gravityEnd);
+        StartCoroutine(WaitTillEnd());
     }
     public void TriggerInflate() {
         if (!usingInputDevices) {
@@ -209,6 +210,14 @@ public class CharacterMotor : MonoBehaviour {
         yield return new WaitForSeconds(bounceBackTimer);
         alreadyBouncedBack = false;
     }
+
+    IEnumerator WaitTillEnd() {
+        yield return new WaitForSeconds(waitTimeBeforeSlowDownAtEnd);
+
+        physicsComponent.velocity = Vector2.zero;
+        physicsComponent.SetGravity(gravityEnd);
+    }
+
     public Size GetCurrentSize() {
         return currentSize;
     }
