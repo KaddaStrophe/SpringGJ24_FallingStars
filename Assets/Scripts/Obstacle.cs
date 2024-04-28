@@ -7,6 +7,7 @@ public class Obstacle : MonoBehaviour {
     bool isEnd = false;
 
     protected void OnCollisionEnter2D(Collision2D collision) {
+        Debug.Log("Collided");
         if (collision.gameObject.CompareTag("Player")) {
             collision.gameObject.TryGetComponent<CharacterMotor>(out var characterMotor);
             obstacleEventChannel.RaiseObstacleHit(this, characterMotor);
@@ -14,6 +15,7 @@ public class Obstacle : MonoBehaviour {
     }
 
     protected void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log("Triggered");
         if (collision.CompareTag("Player")) {
             if (collision.TryGetComponent<CharacterMotor>(out var characterMotor)) {
                 if (isEnd) {
