@@ -50,10 +50,10 @@ public class CharacterMotor : MonoBehaviour {
     bool alreadyBouncedBack = false;
     bool usingOnScreenButtons = false;
     bool usingInputDevices = false;
-    bool endGame = false;
+    bool canMove = false;
 
     protected void OnEnable() {
-        endGame = false;
+        canMove = false;
         if (!physicsComponent) {
             TryGetComponent(out physicsComponent);
         }
@@ -66,6 +66,7 @@ public class CharacterMotor : MonoBehaviour {
         obstacleEventChannel.OnObstacleHit += BounceBack;
         obstacleEventChannel.OnObstacleCrash += BreakThrough;
         obstacleEventChannel.OnObstacleEnd += EndGame;
+        characterEventChannel.OnCharacterStartMove += StartMoving;
     }
 
     protected void OnDisable() {
@@ -77,36 +78,44 @@ public class CharacterMotor : MonoBehaviour {
     protected void Start() {
         NormalizeSize();
         meteorVFX.Stop();
+        physicsComponent.SetGravity(0);
+        physicsComponent.velocity = Vector2.zero;
     }
 
     protected void FixedUpdate() {
-        physicsComponent.acceleration = currentAcceleration;
-        if (!usingOnScreenButtons) {
-            if (!isInflated) {
-                if (characterInputComponent.shouldCompress && !isCompressed) {
-                    usingInputDevices = true;
-                    Compress();
+        if (canMove) {
+            if (!usingOnScreenButtons) {
+                if (!isInflated) {
+                    if (characterInputComponent.shouldCompress && !isCompressed) {
+                        usingInputDevices = true;
+                        Compress();
+                    }
+                    if (!characterInputComponent.shouldCompress && isCompressed) {
+                        usingInputDevices = false;
+                        NormalizeSize();
+                    }
                 }
-                if (!characterInputComponent.shouldCompress && isCompressed) {
-                    usingInputDevices = false;
-                    NormalizeSize();
-                }
-            }
-            if (!isCompressed) {
-                if (characterInputComponent.shouldInflate && !isInflated) {
-                    usingInputDevices = true;
-                    Inflate();
-                }
-                if (!characterInputComponent.shouldInflate && isInflated) {
-                    usingInputDevices = false;
-                    NormalizeSize();
+                if (!isCompressed) {
+                    if (characterInputComponent.shouldInflate && !isInflated) {
+                        usingInputDevices = true;
+                        Inflate();
+                    }
+                    if (!characterInputComponent.shouldInflate && isInflated) {
+                        usingInputDevices = false;
+                        NormalizeSize();
+                    }
                 }
             }
         }
     }
 
+    void StartMoving(CharacterMotor character) {
+        canMove = true;
+        physicsComponent.SetGravity(gravityDefault);
+    }
+
     void Compress() {
-        if (!endGame) {
+        if (canMove) {
             isCompressed = true;
             ResizeCharacter(Size.SMALL);
             characterEventChannel.RaiseCharacterResize(this);
@@ -114,7 +123,7 @@ public class CharacterMotor : MonoBehaviour {
     }
 
     void Inflate() {
-        if (!endGame) {
+        if (canMove) {
             isInflated = true;
             ResizeCharacter(Size.LARGE);
             meteorVFX.Reinit();
@@ -166,7 +175,7 @@ public class CharacterMotor : MonoBehaviour {
     }
 
     void EndGame(Obstacle obstacle, CharacterMotor characterMotor) {
-        endGame = true;
+        canMove = false;
         physicsComponent.velocity = Vector2.zero;
         physicsComponent.SetGravity(gravityEnd);
     }

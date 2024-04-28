@@ -16,12 +16,6 @@ public class CinematicEnding : MonoBehaviour {
     LeanTweenType rotationEaseType = LeanTweenType.easeInBack;
     [SerializeField]
     LeanTweenType zoomoutEaseType = LeanTweenType.easeInBack;
-    [SerializeField]
-    CanvasGroup endCanvas = default;
-    [SerializeField]
-    float canvasBlendInDelay = 2f;
-    [SerializeField]
-    float canvasAlphaTime = 2;
 
     protected void OnEnable() {
         obstacleEventChannel.OnObstacleEnd += TriggerEndSequence;
@@ -34,6 +28,5 @@ public class CinematicEnding : MonoBehaviour {
     void TriggerEndSequence(Obstacle obstacle, CharacterMotor characterMotor) {
         LeanTween.rotateLocal(mainCamera.gameObject, new Vector3(0, 0, 180), rotationTime).setEase(rotationEaseType);
         LeanTween.value(virtualCamera.gameObject, virtualCamera.m_Lens.OrthographicSize, 60f, zoomoutTime).setEase(zoomoutEaseType).setOnUpdate((float val) => { virtualCamera.m_Lens.OrthographicSize = val; });
-        LeanTween.alphaCanvas(endCanvas, 1, canvasAlphaTime).setDelay(canvasBlendInDelay);
     }
 }

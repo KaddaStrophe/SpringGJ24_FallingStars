@@ -16,12 +16,6 @@ public class CharacterVisuals : MonoBehaviour {
     [Header("End Game Options")]
     [SerializeField]
     List<GameObject> objectsToDisable = default;
-    [SerializeField]
-    ParticleSystem backgroundParticle = default;
-    [SerializeField]
-    VisualEffect particleTrail = default;
-    [SerializeField]
-    TrailRenderer trailRenderer = default;
 
     Vector3 newScale = Vector3.zero;
     LTDescr lastTween = null;
@@ -49,10 +43,6 @@ public class CharacterVisuals : MonoBehaviour {
     }
 
     void EndGame(Obstacle obstacle, CharacterMotor characterMotor) {
-        //backgroundParticle.Stop();
-        //particleTrail.Stop();
-        //particleTrail.gameObject.SetActive(false);
-        //trailRenderer.enabled = false;
         foreach (var item in objectsToDisable) {
             item.SetActive(false);
         }
