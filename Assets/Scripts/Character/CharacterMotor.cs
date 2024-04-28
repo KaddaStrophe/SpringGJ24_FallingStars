@@ -39,6 +39,8 @@ public class CharacterMotor : MonoBehaviour {
     VisualEffect meteorVFX = default;
     [SerializeField]
     float waitTimeBeforeSlowDownAtEnd = 1f;
+    [SerializeField]
+    float zeroGravityTime = 2f;
 
     [Header("Debug")]
     [SerializeField]
@@ -75,6 +77,7 @@ public class CharacterMotor : MonoBehaviour {
         obstacleEventChannel.OnObstacleHit -= BounceBack;
         obstacleEventChannel.OnObstacleCrash -= BreakThrough;
         obstacleEventChannel.OnObstacleEnd -= EndGame;
+        characterEventChannel.OnCharacterStartMove -= StartMoving;
     }
 
     protected void Start() {
@@ -216,6 +219,11 @@ public class CharacterMotor : MonoBehaviour {
 
         physicsComponent.velocity = Vector2.zero;
         physicsComponent.SetGravity(gravityEnd);
+        LeanTween.value(physicsComponent.gameObject, gravityEnd, -0.01f, zeroGravityTime).setEase(LeanTweenType.linear).setOnUpdate((float val) => { physicsComponent.SetGravity(val); }).setOnComplete(() => { SetPhysicsVelocityToZero(); });
+    }
+
+    void SetPhysicsVelocityToZero() {
+        //physicsComponent.velocity = Vector2.zero;
     }
 
     public Size GetCurrentSize() {

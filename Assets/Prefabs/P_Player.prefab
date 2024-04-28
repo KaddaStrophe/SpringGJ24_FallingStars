@@ -496,6 +496,8 @@ MonoBehaviour:
   gravityLarge: -30
   gravityEnd: -0.5
   meteorVFX: {fileID: 6508494839787326070}
+  waitTimeBeforeSlowDownAtEnd: 1
+  zeroGravityTime: 20
   bounceBackTimer: 0.1
   currentSize: 0
 --- !u!114 &7721059650368784679
