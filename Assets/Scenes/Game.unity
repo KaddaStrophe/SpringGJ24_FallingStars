@@ -924,7 +924,7 @@ MonoBehaviour:
   obstacleRatesLvl3: 010000000200000003000000
   obstacleDistance: 20
   levelDurations:
-  - 200
+  - 100
   - 200
   - 200
   lastObstacleVertPos: 0

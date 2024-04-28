@@ -48,6 +48,7 @@ public class ObstacleSpawner : MonoBehaviour {
     [SerializeField]
     float totalLevelSize = 0;
     bool spawningIsActive = false;
+    bool endGame = false;
     float nextLevelStart = 0;
     int levelCounter = 0;
     Dictionary<float, List<int>> levelRates = new Dictionary<float, List<int>>();
@@ -87,10 +88,11 @@ public class ObstacleSpawner : MonoBehaviour {
 
         currentHeight = transform.position.y;
         heightDelta = Mathf.Abs(currentHeight - lastObstacleVertPos);
-        if (!spawningIsActive) {
+        if (!spawningIsActive && !endGame) {
             if(heightDelta >= beginningBuffer) {
                 spawningIsActive = true;
                 lastObstacleVertPos = currentHeight;
+                heightDelta = Mathf.Abs(currentHeight - lastObstacleVertPos);
             }
         }
         if (spawningIsActive) {
@@ -104,6 +106,7 @@ public class ObstacleSpawner : MonoBehaviour {
                     levelCounter++;
                 } else {
                     spawningIsActive = false;
+                    endGame = true;
                     EndGame();
                 }
             }

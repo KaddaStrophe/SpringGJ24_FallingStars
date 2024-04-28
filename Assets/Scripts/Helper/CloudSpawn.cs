@@ -26,7 +26,7 @@ public class CloudSpawn : MonoBehaviour {
         float cloudPos = cloudContainer.transform.position.y - Random.Range(0, Mathf.Abs(rect.sizeDelta.y));
         var cloudInstance = Instantiate(clouds[Random.Range(0, clouds.Count)], cloudContainer.transform);
         cloudInstance.transform.position = new Vector3(cloudContainer.transform.position.x, cloudPos, cloudContainer.transform.position.z);
-        cloudInstance.transform.localScale = new Vector3(.2f, .2f, .2f);
+        cloudInstance.transform.localScale = new Vector3(.4f, .4f, .4f);
         waitForCloudSpawn = false;
     }
 
