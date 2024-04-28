@@ -14,6 +14,8 @@ public class ObstacleSpawner : MonoBehaviour {
     List<GameObject> obstaclePool = default;
 
     [SerializeField]
+    float beginningBuffer = 20f;
+    [SerializeField]
     float obstacleEndDistance = 20f;
     [SerializeField]
     GameObject obstacleEnd = default;
@@ -45,7 +47,7 @@ public class ObstacleSpawner : MonoBehaviour {
 
     [SerializeField]
     float totalLevelSize = 0;
-    bool spawningIsActive = true;
+    bool spawningIsActive = false;
     float nextLevelStart = 0;
     int levelCounter = 0;
     Dictionary<float, List<int>> levelRates = new Dictionary<float, List<int>>();
@@ -58,7 +60,7 @@ public class ObstacleSpawner : MonoBehaviour {
         levelRates.Add(2, obstacleRatesLvl3);
 
         lastObstacleVertPos = transform.position.y;
-        nextLevelStart = lastObstacleVertPos - levelDurations[levelCounter];
+        nextLevelStart = lastObstacleVertPos - levelDurations[levelCounter] - beginningBuffer;
         levelCounter++;
         CalculateColorSteps();
 
@@ -71,18 +73,27 @@ public class ObstacleSpawner : MonoBehaviour {
             totalLevelSize += duration;
         }
         totalLevelSize += obstacleEndDistance;
-        totalLevelSize += obstacleDistance * 2;
+        totalLevelSize += beginningBuffer;
+        //totalLevelSize += obstacleDistance * 2;
         var colorDelta = new Vector3(backgroundGoalColor.r, backgroundGoalColor.g, backgroundGoalColor.b) - new Vector3(backgroundStartColor.r, backgroundStartColor.g, backgroundStartColor.b);
         colorSteps = colorDelta / totalLevelSize;
         mainCamera.backgroundColor = backgroundStartColor;
     }
 
     protected void FixedUpdate() {
+        // Background Color Blend
         heightDeltaSinceLastStep = currentHeight - transform.position.y;
         BlendBackgroundColor(heightDeltaSinceLastStep);
+
         currentHeight = transform.position.y;
+        heightDelta = Mathf.Abs(currentHeight - lastObstacleVertPos);
+        if (!spawningIsActive) {
+            if(heightDelta >= beginningBuffer) {
+                spawningIsActive = true;
+                lastObstacleVertPos = currentHeight;
+            }
+        }
         if (spawningIsActive) {
-            heightDelta = Mathf.Abs(currentHeight - lastObstacleVertPos);
             if (heightDelta >= obstacleDistance) {
                 lastObstacleVertPos = currentHeight;
                 SpawnObstacle(currentHeight);
