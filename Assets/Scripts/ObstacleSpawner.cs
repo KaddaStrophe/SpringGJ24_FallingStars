@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour {
     [SerializeField]
+    bool spawnObstacles = true;
+    [SerializeField]
+    bool endlessMode = false;
+    [SerializeField]
     Color backgroundStartColor = default;
     [SerializeField]
     Color backgroundGoalColor = default;
@@ -89,7 +93,7 @@ public class ObstacleSpawner : MonoBehaviour {
         currentHeight = transform.position.y;
         heightDelta = Mathf.Abs(currentHeight - lastObstacleVertPos);
         if (!spawningIsActive && !endGame) {
-            if(heightDelta >= beginningBuffer) {
+            if (heightDelta >= beginningBuffer) {
                 spawningIsActive = true;
                 lastObstacleVertPos = currentHeight;
                 heightDelta = Mathf.Abs(currentHeight - lastObstacleVertPos);
@@ -115,25 +119,31 @@ public class ObstacleSpawner : MonoBehaviour {
     }
 
     void BlendBackgroundColor(float heightDelta) {
-        mainCamera.backgroundColor += new Color(colorSteps.x * heightDelta, colorSteps.y * heightDelta, colorSteps.z * heightDelta, 1);
+        if (!endlessMode) {
+            mainCamera.backgroundColor += new Color(colorSteps.x * heightDelta, colorSteps.y * heightDelta, colorSteps.z * heightDelta, 1);
+        }
     }
 
     void EndGame() {
-        endObstacleInstance.transform.position = new Vector3(0f, currentHeight - obstacleEndDistance, 0f);
+        if (!endlessMode) {
+            endObstacleInstance.transform.position = new Vector3(0f, currentHeight - obstacleEndDistance, 0f);
+        }
     }
 
     void SpawnObstacle(float currentHeight) {
-        // Decide which element to spawn
-        obstacleElements = new List<GameObject>();
-        for (int i = 0; i < obstaclePool.Count; i++) {
-            var obstacle = obstaclePool[i];
-            for (int j = 0; j < levelRates[levelCounter - 1][i]; j++) {
-                obstacleElements.Add(obstacle);
+        if (spawnObstacles) {
+            // Decide which element to spawn
+            obstacleElements = new List<GameObject>();
+            for (int i = 0; i < obstaclePool.Count; i++) {
+                var obstacle = obstaclePool[i];
+                for (int j = 0; j < levelRates[levelCounter - 1][i]; j++) {
+                    obstacleElements.Add(obstacle);
+                }
             }
-        }
-        var obstacleArray = obstacleElements.ToArray();
+            var obstacleArray = obstacleElements.ToArray();
 
-        var instance = Instantiate(obstacleArray[Random.Range(0, obstacleArray.Length)], obstacleContainer.transform);
-        instance.transform.position = new Vector3(0f, currentHeight, 0f);
+            var instance = Instantiate(obstacleArray[Random.Range(0, obstacleArray.Length)], obstacleContainer.transform);
+            instance.transform.position = new Vector3(0f, currentHeight, 0f);
+        }
     }
 }
